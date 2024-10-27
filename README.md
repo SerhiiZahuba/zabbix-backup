@@ -56,6 +56,19 @@ echo "CREATE EXTENSION IF NOT EXISTS timescaledb CASCADE;" | psql zabbix
 cat /usr/share/zabbix-postgresql/timescaledb.sql | psql zabbix
 ```
 
+A second options of restore wit Zabbix 7.0.5
+
+```bash
+# systemctl stop zabbix-server.service
+su - postgres
+dropdb zabbix
+createdb -O zabbix zabbix
+gunzip backup.gz
+sudo -i -u postgres psql restore < ./backup.sql
+echo "CREATE EXTENSION IF NOT EXISTS timescaledb CASCADE;" | sudo -u postgres psql zabbix
+cat /usr/share/zabbix-sql-scripts/postgresql/timescaledb/schema.sql | sudo -u zabbix psql zabbix
+```
+
 ## Version history
 
 **0.9.11 (2023-05-02)**
