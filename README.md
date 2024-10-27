@@ -8,11 +8,9 @@ Download the latest (stable) release here:
 
 https://github.com/npotorino/zabbix-backup/releases/latest
 
-## More informations
-
-Please see the [Project Wiki](https://github.com/npotorino/zabbix-backup/wiki).
-
 ## Examples
+
+./zabbix-dump -H localhost -P 5432 -o /mnt/backup
 
 ### Backup
 
